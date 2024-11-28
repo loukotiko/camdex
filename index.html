@@ -12,7 +12,7 @@
         created() {
           this.getAllPokemons();
         },
-        allPokemons = [],
+        allPokemons: [],
         async getAllPokemons() {
           this.allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
         },
