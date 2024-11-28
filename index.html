@@ -17,7 +17,7 @@
         async getPokemons() {
           this.pokemons = pokemonStorage.fetch();
           const pokemonsNames = (await pokeapi("https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0")).results;
-          if (pokemonNames.length === this.pokemons.length) return;  // No need to update pokemon data
+          if (pokemonsNames.length === this.pokemons.length) return;  // No need to update pokemon data
       
           const pokemonsData = await Promise.all(pokemonsNames.map(({url}) => pokeapi(url)));
           this.pokemons = pokemonsData.map((pokemon, index) => ({
