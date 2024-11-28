@@ -1,14 +1,6 @@
 <!doctype html>
 <html>
   <head>
-
-  </head>
-  <body>
-    <div v-scope="Vocodex()">
-      <div v-for="pokemon in allPokemons">{{pokemon.name}}</div>
-    </div>
-
-    <script src="https://unpkg.com/petite-vue" defer init></script>
     <script type="module">
       import { createApp } from 'https://unpkg.com/petite-vue?module';
       const pokeapi = async (url) => await fetch(url).then(data => data.json());
@@ -27,5 +19,10 @@
         Vocodex
       }).mount();
     </script>
+  </head>
+  <body>    
+    <div v-scope="Vocodex({})">
+      <div v-for="pokemon in allPokemons">{{pokemon.name}}</div>
+    </div>
   </body>
 </html>
