@@ -2,7 +2,7 @@
 <html>
   <head>
     <script type="module">
-      import { createApp, ref } from 'https://unpkg.com/petite-vue?module';
+      import { createApp } from 'https://unpkg.com/petite-vue?module';
       const pokeapi = async (url) => await fetch(url).then(data => data.json());
       const storePkmn = (pkmnId, value) => cookies.set({[pkmnId]:value});
       const getStoredPkmns = () => cookies.getAll();
