@@ -11,15 +11,18 @@
         title: 'Vocodex v0.1',
         allPokemons: [],
         async getAllPokemons() {
-          this.allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+          this.allPokemons = (await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")).results;
         },
+        onMount() {
+          this.getAllPokemons();
+        }
       }).mount();
     </script>
   </head>
   <body>    
-    <div v-scope @vue:mounted="getAllPokemons()">
+    <div v-scope @vue:mounted="onMount">
       <h1>{{title}}</h1>
-      <div v-for="pokemon in allPokemons">{{pokemon.name}} !</div>
+      <div v-for="pokemon in allPokemons">{{pokemon.name}}</div>
     </div>
   </body>
 </html>
