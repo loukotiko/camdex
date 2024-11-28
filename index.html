@@ -7,24 +7,20 @@
       const storePkmn = (pkmnId, value) => cookies.set({[pkmnId]:value});
       const getStoredPkmns = () => cookies.getAll();
 
-      function Vocodex(props) {
-        const allPokemons = ref([]);
-        return {
-          async created() {
-            allPokemons.value = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
-          },
-          allPokemons,
-          title: 'Vocodex v0.1'
-        }
-      }
-
       createApp({
-        Vocodex
+        title: 'Vocodex v0.1',
+        created() {
+          this.getAllPokemons();
+        },
+        allPokemons = [],
+        async getAllPokemons() {
+          this.allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+        },
       }).mount();
     </script>
   </head>
   <body>    
-    <div v-scope="Vocodex({})">
+    <div v-scope>
       <h1>{{title}}</h1>
       <div v-for="pokemon in allPokemons">{{pokemon.name}} !</div>
     </div>
