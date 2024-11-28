@@ -12,6 +12,7 @@
 
         return {
           allPokemons,
+          title: 'Vocodex v0.1'
         }
       }
 
@@ -22,6 +23,7 @@
   </head>
   <body>    
     <div v-scope="Vocodex({})">
+      <h1>{{title}}</h1>
       <div v-for="pokemon in allPokemons">{{pokemon.name}}</div>
     </div>
   </body>
