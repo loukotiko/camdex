@@ -7,11 +7,12 @@
       const storePkmn = (pkmnId, value) => cookies.set({[pkmnId]:value});
       const getStoredPkmns = () => cookies.getAll();
 
-      async function Vocodex(props) {
-        const allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
-
+      function Vocodex(props) {
         return {
-          allPokemons,
+          async created() {
+            this.allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+          },
+          allPokemons: [],
           title: 'Vocodex v0.1'
         }
       }
