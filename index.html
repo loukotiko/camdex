@@ -2,17 +2,18 @@
 <html>
   <head>
     <script type="module">
-      import { createApp } from 'https://unpkg.com/petite-vue?module';
+      import { createApp, ref } from 'https://unpkg.com/petite-vue?module';
       const pokeapi = async (url) => await fetch(url).then(data => data.json());
       const storePkmn = (pkmnId, value) => cookies.set({[pkmnId]:value});
       const getStoredPkmns = () => cookies.getAll();
 
       function Vocodex(props) {
+        const allPokemons = ref([]);
         return {
           async created() {
-            this.allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+            allPokemons.value = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
           },
-          allPokemons: [],
+          allPokemons,
           title: 'Vocodex v0.1'
         }
       }
@@ -25,7 +26,7 @@
   <body>    
     <div v-scope="Vocodex({})">
       <h1>{{title}}</h1>
-      <div v-for="pokemon in allPokemons">{{pokemon.name}}</div>
+      <div v-for="pokemon in allPokemons">{{pokemon.name}} !</div>
     </div>
   </body>
 </html>
