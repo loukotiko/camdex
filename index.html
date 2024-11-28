@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div v-scope="Vocodex()">
+      <div v-for="pokemon in allPokemons">{{pokemon.name}}</div>
+    </div>
+
+    <script src="https://unpkg.com/petite-vue" defer init></script>
+    <script type="module">
+      import { createApp } from 'https://unpkg.com/petite-vue?module';
+      const pokeapi = async (url) => await fetch(url).then(data => data.json());
+      const storePkmn = (pkmnId, value) => cookies.set({[pkmnId]:value});
+      const getStoredPkmns = () => cookies.getAll();
+
+      async function Vocodex(props) {
+        const allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+
+        return {
+          allPokemons,
+        }
+      }
+
+      createApp({
+        Vocodex
+      }).mount();
+    </script>
+  </body>
+</html>
