@@ -16,11 +16,11 @@
         pokemons: [],
         async getPokemons() {
           this.pokemons = pokemonStorage.fetch();
-          const pokemonNames = (await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")).results;
+          const pokemonsNames = (await pokeapi("https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0")).results;
           if (pokemonNames.length === this.pokemons.length) return;  // No need to update pokemon data
       
-          const pokemonForms = await Promise.all(pokemonNames.map(({name}) => pokeapi("https://pokeapi.co/api/v2/pokemon-form/"+name)));
-          this.pokemons = pokemonSpecies.map((pokemon, index) => ({
+          const pokemonsData = await Promise.all(pokemonsNames.map(({url}) => pokeapi(url)));
+          this.pokemons = pokemonsData.map((pokemon, index) => ({
             name: pokemon.names.find(({language}) => language.name === "fr")?.name || '???',
             sprite: pokemon.sprites.front_default,
             voxMeter: this.pokemons[index]?.voxMeter || 0
