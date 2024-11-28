@@ -4,25 +4,45 @@
     <script type="module">
       import { createApp } from 'https://unpkg.com/petite-vue?module';
       const pokeapi = async (url) => await fetch(url).then(data => data.json());
-      const storePkmn = (pkmnId, value) => cookies.set({[pkmnId]:value});
-      const getStoredPkmns = () => cookies.getAll();
-
+      
+      const STORAGE_KEY = 'vocodex-pokemons'
+      const pokemonStorage = {
+        fetch: () => JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'),
+        save: (pokemons) => localStorage.setItem(STORAGE_KEY, JSON.stringify(pokemons))
+      }
+          
       createApp({
         title: 'Vocodex v0.1',
-        allPokemons: [],
-        async getAllPokemons() {
-          this.allPokemons = (await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")).results;
+        pokemons: [],
+        async getPokemons() {
+          this.pokemons = pokemonStorage.fetch();
+          const pokemonNames = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")).results;
+          if(pokemonNames.length === this.pokemons.length) return;  // No need to update pokemon data
+      
+          const pokemonSpecies = await Promise.all(pokemonNames.map(({name}) => pokeapi("https://pokeapi.co/api/v2/pokemon-species/"+name)));
+          this.pokemons = pokemonSpecies.map(({names}, index) => ({
+            name: names.find(({language}) => language.name === "fr")?.name || '???',
+            voxMeter: ?.voxMeter || 0
+          }));
         },
         onMount() {
-          this.getAllPokemons();
+          this.getPokemons();
+        },
+        save() {
+          pokemonStorage.save(pokemons);
         }
       }).mount();
     </script>
   </head>
   <body>    
-    <div v-scope @vue:mounted="onMount">
+    <div v-scope @vue:mounted="onMount" v-effect="save()" v-cloak>
       <h1>{{title}}</h1>
-      <div v-for="pokemon in allPokemons">{{pokemon.name}}</div>
+      <ol>
+        <li v-for="pokemon in pokemons">
+          <span class="title">{{pokemon.name}}</span>
+          <input type="range" min="0" max="3" v-model="pokemon.voxMeter">
+        </li>
+      </ol>
     </div>
   </body>
 </html>
