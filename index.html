@@ -22,7 +22,7 @@
           const pokemonSpecies = await Promise.all(pokemonNames.map(({name}) => pokeapi("https://pokeapi.co/api/v2/pokemon-species/"+name)));
           this.pokemons = pokemonSpecies.map(({names}, index) => ({
             name: names.find(({language}) => language.name === "fr")?.name || '???',
-            voxMeter: ?.voxMeter || 0
+            voxMeter: this.pokemons[index]?.voxMeter || 0
           }));
         },
         onMount() {
