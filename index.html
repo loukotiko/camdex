@@ -9,9 +9,6 @@
 
       createApp({
         title: 'Vocodex v0.1',
-        created() {
-          this.getAllPokemons();
-        },
         allPokemons: [],
         async getAllPokemons() {
           this.allPokemons = await pokeapi("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
@@ -20,7 +17,7 @@
     </script>
   </head>
   <body>    
-    <div v-scope>
+    <div v-scope @vue:mounted="getAllPokemons()">
       <h1>{{title}}</h1>
       <div v-for="pokemon in allPokemons">{{pokemon.name}} !</div>
     </div>
