@@ -6,12 +6,5 @@ body {
 
 body {
   background: #222;
-}
-
-.rpgui-container {
-  position: static;
-}
-
-.description {
-  flex: 1;
+  padding: 20px;
 }
