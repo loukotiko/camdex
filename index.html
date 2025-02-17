@@ -1,50 +1,13 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <script type="module">
-      import { createApp } from 'https://unpkg.com/petite-vue?module';
-      const pokeapi = async (url) => await fetch(url).then(data => data.json());
-      
-      const STORAGE_KEY = 'vocodex-pokemons'
-      const pokemonStorage = {
-        fetch: () => JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'),
-        save: (pokemons) => localStorage.setItem(STORAGE_KEY, JSON.stringify(pokemons))
-      }
-          
-      createApp({
-        title: 'Vocodex v0.1',
-        pokemons: [],
-        async getPokemons() {
-          this.pokemons = pokemonStorage.fetch();
-          const pokemonsNames = (await pokeapi("https://pokeapi.co/api/v2/pokemon-species?limit=100000&offset=0")).results;
-          if (pokemonsNames.length === this.pokemons.length) return;  // No need to update pokemon data
-      
-          const pokemonsData = await Promise.all(pokemonsNames.map(({url}) => pokeapi(url)));
-          this.pokemons = pokemonsData.map((pokemon, index) => ({
-            name: pokemon.names.find(({language}) => language.name === "fr")?.name || '???',
-            sprite: pokemon.sprites.front_default,
-            voxMeter: this.pokemons[index]?.voxMeter || 0
-          }));
-        },
-        onMount() {
-          this.getPokemons();
-        },
-        save() {
-          pokemonStorage.save(this.pokemons);
-        }
-      }).mount();
-    </script>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cam'dex</title>
   </head>
-  <body>    
-    <div v-scope @vue:mounted="onMount" v-effect="save()" v-cloak>
-      <h1>{{title}}</h1>
-      <ol>
-        <li v-for="pokemon in pokemons">
-          <span class="title">{{pokemon.name}}</span>
-          <img :src="pokemon.sprite">
-          <input type="range" min="0" max="3" v-model="pokemon.voxMeter">
-        </li>
-      </ol>
-    </div>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
