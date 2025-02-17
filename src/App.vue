@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { PokeAPI } from "pokeapi-types";
-import { pokeApi, translate } from "./utils.ts";
+import { pokeApi, translate, types } from "./utils.ts";
 import { PokemonCamdex } from "./types";
 import camdex from "../data/camdex.json";
 import pkmnsCustom from "../data/pkmns_custom.json";
@@ -20,6 +20,7 @@ Object.entries(camdex).forEach(async ([key, value], index) => {
     pkmns.value[index] = {
       name: translate(pkmnSpecies.names, "fr"),
       img: pkmn.sprites.front_default,
+      types: pkmn.types.map(({ type }) => type.name),
       captured,
       registered,
     };
@@ -28,6 +29,7 @@ Object.entries(camdex).forEach(async ([key, value], index) => {
     pkmns.value[index] = {
       name: pkmnCustom.name,
       img: pkmnCustom.img,
+      types: pkmnCustom.types,
       captured,
       registered,
     };
@@ -35,6 +37,7 @@ Object.entries(camdex).forEach(async ([key, value], index) => {
 });
 
 const filterCapture = ref("all");
+const filterTypes = ref([]);
 const filteredPkmns = computed(() =>
   pkmns.value
     .filter((pkmn) => {
@@ -57,10 +60,26 @@ const filteredPkmns = computed(() =>
 
 const pkmnsTotal = computed(() => pkmns.value.length);
 const pkmnsTotalCaptured = computed(
-  () => pkmns.value.filter((pkmn) => pkmn.captured).length
+  () => pkmns.value.filter((pkmn) => pkmn?.captured).length
 );
 const pkmnsTotalRegistered = computed(
-  () => pkmns.value.filter((pkmn) => pkmn.registered === 3).length
+  () => pkmns.value.filter((pkmn) => pkmn?.registered === 3).length
+);
+
+const pkmnsTotalType = computed(() =>
+  pkmns.value.filter(Boolean).reduce(
+    (total, pkmn) => ({
+      ...total,
+      ...(pkmn.types || []).reduce(
+        (totalType, type) => ({
+          ...totalType,
+          [type]: (total[type] || 0) + 1,
+        }),
+        {}
+      ),
+    }),
+    {}
+  )
 );
 </script>
 
@@ -88,6 +107,15 @@ const pkmnsTotalRegistered = computed(
       </span>
     </label>
   </div>
+  <div id="pkmn-filters-types" class="pkmn-filters">
+    <label class="pkmn-filter" v-for="(label, key) in types">
+      <input type="radio" v-model="filterCapture" :value="key" />
+      <span>
+        <span class="label">{{ label }}</span>
+        <span class="number">{{ pkmnsTotalType[key] || 0 }}</span>
+      </span>
+    </label>
+  </div>
   <div id="pkmn-list">
     <Pkmn v-for="pkmn in filteredPkmns" :pkmn="pkmn" />
   </div>
@@ -100,6 +128,11 @@ const pkmnsTotalRegistered = computed(
   grid-gap: 10px;
 }
 #pkmn-filters {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#pkmn-filters-types {
   margin-bottom: 30px;
   text-align: center;
 }

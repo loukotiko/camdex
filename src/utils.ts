@@ -13,3 +13,26 @@ export const translate = (
   array: PokeAPI.Name[],
   language: PokeAPI.Name["language"]["name"]
 ) => array.find(({ language: { name } }) => name === language)?.name!;
+
+export const types = {
+  normal: "Normal",
+  fighting: "Combat",
+  flying: "Vol",
+  poison: "Poison",
+  ground: "Sol",
+  rock: "Roche",
+  bug: "Insecte",
+  ghost: "Spectre",
+  steel: "Acier",
+  fire: "Feu",
+  water: "Eau",
+  grass: "Plante",
+  electric: "Electrik",
+  psychic: "Psy",
+  ice: "Glace",
+  dragon: "Dragon",
+  dark: "Ténèbres",
+  fairy: "Fée",
+};
+
+export const translateType = (key: string) => types[key as keyof typeof types];

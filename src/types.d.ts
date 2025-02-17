@@ -5,4 +5,5 @@ export type PokemonCamdex = {
   img: string;
   captured: boolean;
   registered: number;
+  types: string[];
 };

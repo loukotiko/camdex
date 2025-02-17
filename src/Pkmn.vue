@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { PokemonCamdex } from "./types";
+import { translateType } from "./utils";
+
 defineProps<{
   pkmn: PokemonCamdex;
 }>();
@@ -13,21 +15,34 @@ defineProps<{
       'pkmn-registered': pkmn.registered === 3,
     }"
   >
-    <div class="pkmn-name">
-      {{ pkmn.name }}
+    <div class="pkmn-top">
+      <div class="pkmn-name">
+        {{ pkmn.name }}
+      </div>
+      <div class="pkmn-type">
+        {{ pkmn.types.map(translateType).join(", ") }}
+      </div>
     </div>
     <div class="pkmn-img">
       <img :src="pkmn.img" />
     </div>
-    <div class="pkmn-rank">
-      <i class="fa-solid fa-circle-dot" v-if="pkmn.captured"></i>
-      <i class="fa-solid fa-battery-full" v-else-if="pkmn.registered === 3"></i>
-      <i class="fa-solid fa-battery-half" v-else-if="pkmn.registered === 2"></i>
-      <i
-        class="fa-solid fa-battery-quarter"
-        v-for=" in pkmn.registered"
-        v-else
-      ></i>
+    <div class="pkmn-bottom">
+      <div class="pkmn-rank">
+        <i class="fa-solid fa-circle-dot" v-if="pkmn.captured"></i>
+        <i
+          class="fa-solid fa-battery-full"
+          v-else-if="pkmn.registered === 3"
+        ></i>
+        <i
+          class="fa-solid fa-battery-half"
+          v-else-if="pkmn.registered === 2"
+        ></i>
+        <i
+          class="fa-solid fa-battery-quarter"
+          v-for=" in pkmn.registered"
+          v-else
+        ></i>
+      </div>
     </div>
   </div>
 </template>
@@ -61,15 +76,22 @@ defineProps<{
     image-rendering: auto;
   }
 }
-.pkmn-name {
+.pkmn-top {
   background: linear-gradient(0deg, transparent 0%, var(--color) 30%);
-  font-family: Bebas Neue;
-  font-size: 20px;
-  padding: 3px;
-  align-self: stretch;
-  text-align: center;
   border-radius: 8px 0;
   z-index: 1;
+  align-self: stretch;
+  text-align: center;
+  padding: 3px 0 10px;
+}
+.pkmn-name {
+  font-family: Bebas Neue;
+  font-size: 20px;
+}
+.pkmn-type {
+  font-family: Funnel Sans;
+  font-size: 12px;
+  line-height: 8px;
 }
 .pkmn-rank {
   background: linear-gradient(180deg, transparent 0%, var(--color) 30%);
