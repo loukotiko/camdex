@@ -109,7 +109,10 @@ const pkmnsTotalType = computed(() =>
     </label>
   </div>
   <div id="pkmn-filters-types" class="pkmn-filters">
-    <label class="pkmn-filter filter-small" v-for="(label, key) in types">
+    <label
+      :class="'pkmn-filter filter-small filter-' + key"
+      v-for="(label, key) in types"
+    >
       <input type="radio" v-model="filterSelected" :value="key" />
       <span>
         <span class="label">{{ label }}</span>
@@ -186,6 +189,74 @@ const pkmnsTotalType = computed(() =>
   &.filter-gold > span {
     --border-color: rgb(224, 162, 26);
     --color: rgb(240, 219, 175);
+  }
+  &.filter-fighting > span {
+    --border-color: rgb(209, 131, 13);
+    --color: rgb(237, 205, 167);
+  }
+  &.filter-flying > span {
+    --border-color: rgb(79, 202, 216);
+    --color: rgb(191, 242, 246);
+  }
+  &.filter-poison > span {
+    --border-color: rgb(175, 72, 210);
+    --color: rgb(226, 188, 239);
+  }
+  &.filter-ground > span {
+    --border-color: rgb(128, 73, 29);
+    --color: rgb(229, 193, 164);
+  }
+  &.filter-rock > span {
+    --border-color: rgb(88, 80, 73);
+    --color: rgb(181, 168, 155);
+  }
+  &.filter-bug > span {
+    --border-color: rgb(141, 160, 16);
+    --color: rgb(214, 225, 145);
+  }
+  &.filter-ghost > span {
+    --border-color: rgb(107, 56, 155);
+    --color: rgb(183, 152, 214);
+  }
+  &.filter-steel > span {
+    --border-color: rgb(73, 121, 152);
+    --color: rgb(167, 183, 195);
+  }
+  &.filter-fire > span {
+    --border-color: rgb(213, 63, 63);
+    --color: rgb(233, 177, 177);
+  }
+  &.filter-water > span {
+    --border-color: rgb(59, 117, 205);
+    --color: rgb(177, 204, 233);
+  }
+  &.filter-grass > span {
+    --border-color: rgb(19, 177, 67);
+    --color: rgb(175, 216, 187);
+  }
+  &.filter-electric > span {
+    --border-color: rgb(200, 164, 19);
+    --color: rgb(239, 221, 152);
+  }
+  &.filter-psychic > span {
+    --border-color: rgb(226, 58, 103);
+    --color: rgb(240, 159, 181);
+  }
+  &.filter-ice > span {
+    --border-color: rgb(45, 162, 182);
+    --color: rgb(178, 216, 234);
+  }
+  &.filter-dragon > span {
+    --border-color: rgb(39, 77, 172);
+    --color: rgb(156, 181, 218);
+  }
+  &.filter-dark > span {
+    --border-color: rgb(78, 61, 56);
+    --color: rgb(163, 154, 151);
+  }
+  &.filter-fairy > span {
+    --border-color: rgb(228, 103, 212);
+    --color: rgb(237, 180, 215);
   }
 
   .label {
