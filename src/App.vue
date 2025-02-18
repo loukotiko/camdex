@@ -119,13 +119,13 @@ const pkmnsTotalType = computed(() =>
       <input type="radio" v-model="filterSelected" :value="key" />
       <span>
         <span class="label">{{ label }}</span>
-        <span class="number"
-          >+{{
+        <span class="number">
+          {{pkmnsTotalType[key as keyof typeof pkmnsTotalType]}} (+{{
             Math.floor(
               pkmnsTotalType[key as keyof typeof pkmnsTotalType] / 15
             ) || 0
-          }}</span
-        >
+          }})
+        </span>
       </span>
     </label>
   </div>
