@@ -77,7 +77,7 @@ const pkmnsTotalType = computed(() =>
       ...(pkmn.types || []).reduce(
         (totalType, type) => ({
           ...totalType,
-          [type]: (total[type as keyof typeof total] || 0) + 1,
+          [type]: (total[type as keyof typeof total] || 0) + pkmn.registered,
         }),
         {}
       ),
@@ -119,9 +119,13 @@ const pkmnsTotalType = computed(() =>
       <input type="radio" v-model="filterSelected" :value="key" />
       <span>
         <span class="label">{{ label }}</span>
-        <span class="number">{{
-          pkmnsTotalType[key as keyof typeof pkmnsTotalType] || 0
-        }}</span>
+        <span class="number"
+          >+{{
+            Math.round(
+              pkmnsTotalType[key as keyof typeof pkmnsTotalType] / 15
+            ) || 0
+          }}</span
+        >
       </span>
     </label>
   </div>
