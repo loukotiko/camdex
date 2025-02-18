@@ -44,6 +44,8 @@ const filteredPkmns = computed(() =>
       if (filterSelected.value === "registeredOnly")
         authorized &&= pkmn.registered === 3;
       if (filterSelected.value === "capturedOnly") authorized &&= pkmn.captured;
+      if (filterSelected.value !== "all")
+        authorized &&= pkmn.types.includes(filterSelected.value);
       return authorized;
     })
     .filter(Boolean)
@@ -107,7 +109,7 @@ const pkmnsTotalType = computed(() =>
     </label>
   </div>
   <div id="pkmn-filters-types" class="pkmn-filters">
-    <label class="pkmn-filter" v-for="(label, key) in types">
+    <label class="pkmn-filter filter-small" v-for="(label, key) in types">
       <input type="radio" v-model="filterSelected" :value="key" />
       <span>
         <span class="label">{{ label }}</span>
@@ -129,24 +131,27 @@ const pkmnsTotalType = computed(() =>
   grid-gap: 10px;
 }
 #pkmn-filters {
-  margin-bottom: 10px;
   text-align: center;
+  display: flex;
+  :not(:first-child) > span {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  :not(:last-child) > span {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
 #pkmn-filters-types {
   margin-bottom: 30px;
   text-align: center;
-}
-
-.pkmn-filters {
-  display: flex;
-  :not(:first-child) > span {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-  :not(:last-child) > span {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  .pkmn-filter > span {
+    border-radius: 0;
   }
 }
 
@@ -184,11 +189,23 @@ const pkmnsTotalType = computed(() =>
   }
 
   .label {
+    font-size: 20px;
     margin: 6px 0 -6px;
   }
   .number {
     font-size: 32px;
     color: var(--border-color);
+  }
+
+  &.filter-small {
+    .label {
+      font-size: 16px;
+      margin: 6px 0 -6px;
+    }
+    .number {
+      font-size: 24px;
+      color: var(--border-color);
+    }
   }
 
   input:checked + span {
