@@ -1,7 +1,23 @@
 {
-    "oddish": 1,
-    "pidgey": 2,
-    "myspaille": 3,
     "teddiursa": "captured",
-    "rockruff": "captured"
+    "rockruff": "captured",
+    "caterpie": "captured",
+    "pidove": "captured",
+    "woobat": "captured",
+    "tentacool": "captured",
+    "tangela": "captured",
+    "darkhoot": "captured",
+    "venonat": 1,
+    "marill": 1,
+    "scyther": 1,
+    "mr-mime": 1,
+    "meowth": 1,
+    "pidgey": 1,
+    "oddish": 1,
+    "myspaille": 1,
+    "bellsprout": 1,
+    "jumpluff": 1,
+    "camerupt": 3,
+    "staryu": 3,
+    "appletun": 3
 }

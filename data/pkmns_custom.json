@@ -3,5 +3,10 @@
         "name": "Myspaille",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["fire"]
+    },
+    "darkhoot": {
+        "name": "Hoothoot (version passé)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["flying", "dark"]
     }
 }
