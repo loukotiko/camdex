@@ -40,13 +40,16 @@ const filterSelected = ref("all");
 const filteredPkmns = computed(() =>
   pkmns.value
     .filter((pkmn) => {
-      let authorized = true;
-      if (filterSelected.value === "registeredOnly")
-        authorized &&= pkmn.registered === 3;
-      if (filterSelected.value === "capturedOnly") authorized &&= pkmn.captured;
-      if (filterSelected.value !== "all")
-        authorized &&= pkmn.types.includes(filterSelected.value);
-      return authorized;
+      switch (filterSelected.value) {
+        case "all":
+          return true;
+        case "registeredOnly":
+          return pkmn.registered === 3;
+        case "capturedOnly":
+          return pkmn.captured;
+        default:
+          return pkmn.types.includes(filterSelected.value);
+      }
     })
     .filter(Boolean)
     .sort((p1, p2) => {
