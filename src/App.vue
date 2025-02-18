@@ -36,15 +36,14 @@ Object.entries(camdex).forEach(async ([key, value], index) => {
   }
 });
 
-const filterCapture = ref("all");
-const filterTypes = ref([]);
+const filterSelected = ref("all");
 const filteredPkmns = computed(() =>
   pkmns.value
     .filter((pkmn) => {
       let authorized = true;
-      if (filterCapture.value === "registeredOnly")
+      if (filterSelected.value === "registeredOnly")
         authorized &&= pkmn.registered === 3;
-      if (filterCapture.value === "capturedOnly") authorized &&= pkmn.captured;
+      if (filterSelected.value === "capturedOnly") authorized &&= pkmn.captured;
       return authorized;
     })
     .filter(Boolean)
@@ -73,7 +72,7 @@ const pkmnsTotalType = computed(() =>
       ...(pkmn.types || []).reduce(
         (totalType, type) => ({
           ...totalType,
-          [type]: (total[type] || 0) + 1,
+          [type]: (total[type as keyof typeof total] || 0) + 1,
         }),
         {}
       ),
@@ -86,21 +85,21 @@ const pkmnsTotalType = computed(() =>
 <template>
   <div id="pkmn-filters" class="pkmn-filters">
     <label class="pkmn-filter">
-      <input type="radio" v-model="filterCapture" value="all" />
+      <input type="radio" v-model="filterSelected" value="all" />
       <span>
         <span class="label">Tous</span>
         <span class="number">{{ pkmnsTotal }}</span>
       </span>
     </label>
     <label class="pkmn-filter filter-green">
-      <input type="radio" v-model="filterCapture" value="registeredOnly" />
+      <input type="radio" v-model="filterSelected" value="registeredOnly" />
       <span>
         <span class="label">Enregistrés</span>
         <span class="number">{{ pkmnsTotalRegistered }}</span>
       </span>
     </label>
     <label class="pkmn-filter filter-gold">
-      <input type="radio" v-model="filterCapture" value="capturedOnly" />
+      <input type="radio" v-model="filterSelected" value="capturedOnly" />
       <span>
         <span class="label">Capturés</span>
         <span class="number">{{ pkmnsTotalCaptured }}</span>
@@ -109,10 +108,12 @@ const pkmnsTotalType = computed(() =>
   </div>
   <div id="pkmn-filters-types" class="pkmn-filters">
     <label class="pkmn-filter" v-for="(label, key) in types">
-      <input type="radio" v-model="filterCapture" :value="key" />
+      <input type="radio" v-model="filterSelected" :value="key" />
       <span>
         <span class="label">{{ label }}</span>
-        <span class="number">{{ pkmnsTotalType[key] || 0 }}</span>
+        <span class="number">{{
+          pkmnsTotalType[key as keyof typeof pkmnsTotalType] || 0
+        }}</span>
       </span>
     </label>
   </div>
