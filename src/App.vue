@@ -120,7 +120,7 @@ const pkmnsTotalType = computed(() =>
       <span>
         <span class="label">{{ label }}</span>
         <span class="number">
-          {{pkmnsTotalType[key as keyof typeof pkmnsTotalType]}} (+{{
+          {{pkmnsTotalType[key as keyof typeof pkmnsTotalType] || 0}} (+{{
             Math.floor(
               pkmnsTotalType[key as keyof typeof pkmnsTotalType] / 15
             ) || 0
