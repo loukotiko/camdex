@@ -13,5 +13,10 @@
         "name": "Tadeau",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["water"]
-    }
+    },
+    "kraknoix-plante": {
+        "name": "Kraknoix (plante)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["grass"]
+    },
 }
