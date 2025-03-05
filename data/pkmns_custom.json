@@ -1,22 +1,27 @@
 {
-    "myspaille": {
+    "oddish-dry": {
         "name": "Myspaille",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
-        "types": ["fire"]
+        "types": ["grass"]
     },
-    "darkhoot": {
+    "hoothoot-galaras": {
         "name": "Hoothoot de Galaras",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
-        "types": ["flying", "dark"]
+        "types": ["dark", "flying"]
     },
     "tadeau": {
         "name": "Tadeau",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["water"]
     },
-    "kraknoix-plante": {
-        "name": "Kraknoix (plante)",
+    "trapinch-bug": {
+        "name": "Kraknoix (insecte)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
-        "types": ["grass"]
+        "types": ["bug"]
+    },
+    "vibrava-bug": {
+        "name": "Vibraninf (insecte)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["bug", "dragon"]
     }
 }
