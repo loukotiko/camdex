@@ -28,5 +28,10 @@
         "name": "Onliglali (feu)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["fire", "dark"]
+    },
+    "machop-fighting": {
+        "name": "Machoc (combat)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["rock", "fighting"]
     }
 }
