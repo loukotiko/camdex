@@ -33,5 +33,10 @@
         "name": "Machoc (combat)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["rock", "fighting"]
+    },
+    "shuckle-poison": {
+        "name": "Caratroc (poison)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["poison"]
     }
 }
