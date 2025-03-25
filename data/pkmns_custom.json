@@ -27,6 +27,6 @@
     "glalie-fire": {
         "name": "Onliglali (feu)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
-        "types": ["fire"]
+        "types": ["fire", "dark"]
     }
 }
