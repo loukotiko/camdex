@@ -9,11 +9,6 @@
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["dark", "flying"]
     },
-    "tadeau": {
-        "name": "Tadeau",
-        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
-        "types": ["water"]
-    },
     "trapinch-bug": {
         "name": "Kraknoix (insecte)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
@@ -30,7 +25,7 @@
         "types": ["fire", "dark"]
     },
     "machop-fighting": {
-        "name": "Machoc (combat)",
+        "name": "Manite",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["rock", "fighting"]
     },
@@ -38,5 +33,15 @@
         "name": "Caratroc (poison)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["poison"]
+    },
+    "grimer-water": {
+        "name": "Tadeau",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["water"]
+    },
+    "bonsly-steel": {
+        "name": "Manzaï (acier)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["rock", "fighting"]
     }
 }
