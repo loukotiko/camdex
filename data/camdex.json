@@ -48,7 +48,7 @@
     "swinub": 1,
     "drilbur": 1,
     "snubbull": 1,
-    "minidraco": 1,
+    "minidraco": 2,
     "fraxure": 1,
     "vibrava": 1,
     "vibrava-bug": 2,
@@ -76,5 +76,10 @@
     "shuckle-poison": 3,
     "weavil": 2,
     "ditto": 3,
-    "porygon": 3
+    "porygon": 3,
+    "morgrem": 1,
+    "gible": 1,
+    "toxel": 1,
+    "flaaffy": 1,
+    "manaphy": 1
 }
