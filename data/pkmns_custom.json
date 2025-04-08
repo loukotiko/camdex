@@ -58,5 +58,10 @@
         "name": "Ursaring (glace)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["ice", "dark"]
+    },
+    "teddiursa-ice": {        
+        "name": "Teddiursa (glace)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["ice", "dark"]
     }
 }
