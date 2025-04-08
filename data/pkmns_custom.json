@@ -43,5 +43,15 @@
         "name": "Manzaï (acier)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["rock", "fighting"]
+    },
+    "gastly-ice": {
+        "name": "Fantominus (glace)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["ice", "ghost"]
+    },
+    "haunter-ice": {
+        "name": "Spectrum (glace)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["ice", "ghost"]
     }
 }
