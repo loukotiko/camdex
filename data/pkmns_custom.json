@@ -9,6 +9,11 @@
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["dark", "flying"]
     },
+    "noctowl-galaras": {
+        "name": "Noarfang de Galaras",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["dark", "flying"]
+    },
     "trapinch-bug": {
         "name": "Kraknoix (insecte)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
@@ -64,7 +69,7 @@
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["ice"]
     },
-    "chansey-azumarill": {
+    "chansey-x-azumarill": {
         "name": "Azumarill x Leveinard",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["water", "normal"]
