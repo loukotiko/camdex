@@ -1,7 +1,7 @@
 {
     "oddish-dry": {
         "name": "Myspaille",
-        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "img": "./data/img_custom/oddish-dry.png",
         "types": ["grass"]
     },
     "hoothoot-galaras": {
