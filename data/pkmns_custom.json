@@ -1,7 +1,7 @@
 {
     "oddish-dry": {
         "name": "Myspaille",
-        "img": "./data/img_custom/oddish-dry.png",
+        "img": "./img_custom/oddish-dry.png",
         "types": ["grass"]
     },
     "hoothoot-galaras": {
