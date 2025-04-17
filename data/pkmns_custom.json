@@ -16,12 +16,12 @@
     },
     "trapinch-bug": {
         "name": "Kraknoix (insecte)",
-        "img": "./img_custom/trapinch-bug.png",
+        "img": "./img_custom/trapinch-bug.webp",
         "types": ["bug"]
     },
     "vibrava-bug": {
         "name": "Vibraninf (insecte)",
-        "img": "./img_custom/vibrava-bug.png",
+        "img": "./img_custom/vibrava-bug.webp",
         "types": ["bug", "dragon"]
     },
     "glalie-fire": {
@@ -31,12 +31,12 @@
     },
     "machop-fighting": {
         "name": "Manite",
-        "img": "./img_custom/machop-fighting.png",
+        "img": "./img_custom/machop-fighting.webp",
         "types": ["rock", "fighting"]
     },
     "shuckle-poison": {
         "name": "Caratroc (poison)",
-        "img": "./img_custom/shuckle-poison.png",
+        "img": "./img_custom/shuckle-poison.webp",
         "types": ["poison"]
     },
     "grimer-water": {
@@ -51,12 +51,12 @@
     },
     "gastly-ice": {
         "name": "Fantominus (glace)",
-        "img": "./img_custom/gastly-ice.png",
+        "img": "./img_custom/gastly-ice.webp",
         "types": ["ice", "ghost"]
     },
     "haunter-ice": {
         "name": "Spectrum (glace)",
-        "img": "./img_custom/haunter-ice.png",
+        "img": "./img_custom/haunter-ice.webp",
         "types": ["ice", "ghost"]
     },
     "ursaring-ice": {        
