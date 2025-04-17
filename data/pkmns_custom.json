@@ -41,7 +41,7 @@
     },
     "grimer-water": {
         "name": "Tadeau",
-        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "img": "./img_custom/grimer-water.png",
         "types": ["water"]
     },
     "bonsly-steel": {
