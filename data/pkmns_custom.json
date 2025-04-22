@@ -78,5 +78,10 @@
         "name": "Camérupt (eau)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["water", "ground"]
-    }
+    },
+    "appletun-poison": {
+        "name": "Dratatin (poison)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["poison", "dragon"]
+    },
 }
