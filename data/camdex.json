@@ -21,7 +21,7 @@
     "pidgey": 2,
     "oddish": 2,
     "oddish-dry": 2,
-    "bellsprout": 2,
+    "bellsprout": 3,
     "jumpluff": 2,
     "applin": 2,
     "numel": 2,
@@ -97,6 +97,5 @@
     "chansey": 2,
     "chansey-x-azumarill": 2,
     "pichu": 3,
-    "jigglypuff": 1,
-    "bellsprout": 1
+    "jigglypuff": 1
 }
