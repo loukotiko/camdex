@@ -51,15 +51,15 @@ defineProps<{
 .pkmn {
   --border-color: rgb(99, 99, 99);
   --color: rgb(207, 207, 207);
-  border: 6px solid var(--border-color);
-  box-shadow: 5px 5px 0px #00000033, inset 3px 3px 0px white,
-    inset -3px -3px 0px #00000033;
-  border-radius: 16px 8px;
+  border: 4px solid var(--border-color);
+  box-shadow: 3px 3px 0px #00000033, inset 1.5px 1.5px 0px white,
+    inset -1.5px -1.5px 0px #00000033;
+  border-radius: 10px 6px;
   background: var(--color);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3px;
+  padding: 2px;
 }
 .pkmn-registered {
   --border-color: rgb(19, 177, 67);
@@ -72,7 +72,7 @@ defineProps<{
 .pkmn-img {
   margin: -16px 0;
   img {
-    height: 100px;
+    height: 80px;
     image-rendering: auto;
   }
 }
@@ -82,26 +82,26 @@ defineProps<{
   z-index: 1;
   align-self: stretch;
   text-align: center;
-  padding: 3px 0 10px;
+  padding: 2px 0 6px;
 }
 .pkmn-name {
   font-family: Bebas Neue;
-  font-size: 20px;
+  font-size: 18px;
 }
 .pkmn-type {
   font-family: Funnel Sans;
-  font-size: 12px;
-  line-height: 8px;
+  font-size: 11px;
+  line-height: 6px;
 }
 .pkmn-rank {
   background: linear-gradient(180deg, transparent 0%, var(--color) 30%);
-  font-size: 24px;
-  padding: 8px;
+  font-size: 18px;
+  padding: 4px;
   align-self: stretch;
   display: flex;
   grid-gap: 6px;
   justify-content: center;
-  border-radius: 8px 0;
+  border-radius: 6px 0;
   z-index: 1;
   color: var(--border-color);
 

@@ -36,6 +36,7 @@ Object.entries(camdex).forEach(async ([key, value], index) => {
   }
 });
 
+const filterText = ref("");
 const filterSelected = ref("all");
 const filteredPkmns = computed(() =>
   pkmns.value
@@ -50,6 +51,9 @@ const filteredPkmns = computed(() =>
         default:
           return pkmn.types.includes(filterSelected.value);
       }
+    })
+    .filter((pkmn) => {
+      return pkmn.name.toLowerCase().includes(filterText.value.toLowerCase())
     })
     .filter(Boolean)
     .sort((p1, p2) => {
@@ -88,6 +92,9 @@ const pkmnsTotalType = computed(() =>
 </script>
 
 <template>
+  <div id="pkmn-filters-text">
+    <input v-model="filterText" />
+  </div>
   <div id="pkmn-filters" class="pkmn-filters">
     <label class="pkmn-filter">
       <input type="radio" v-model="filterSelected" value="all" />
@@ -137,8 +144,8 @@ const pkmnsTotalType = computed(() =>
 <style scoped>
 #pkmn-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-gap: 8px;
 }
 #pkmn-filters {
   text-align: center;
@@ -156,12 +163,42 @@ const pkmnsTotalType = computed(() =>
 }
 
 #pkmn-filters-types {
-  margin-bottom: 30px;
+  margin-bottom: 8px;
   text-align: center;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   .pkmn-filter > span {
     border-radius: 0;
+  }
+}
+
+#pkmn-filters-text {
+  margin-bottom: 8px;
+  text-align: center;
+  input {
+    width: 400px;
+    margin: auto;
+    font-family: Bebas Neue;
+    font-size: 20px;
+    text-align: center;
+    --border-color: rgb(224, 224, 224);
+    --color: rgb(247, 247, 247);
+    border: 2px solid var(--border-color);
+    box-shadow: 3px 3px 0px #00000033, inset 1.5px 1.5px 0px white,
+      inset -1.5px -1.5px 0px #00000033;
+    border-radius: 16px 8px;
+    background: var(--color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.2s;
+    padding: 6px;
+    color: rgb(59, 58, 112);
+  }
+  input:focus {
+    outline: none;
+    --border-color: rgb(91, 89, 224);
+    --color: rgb(239, 239, 241);
   }
 }
 
@@ -177,15 +214,15 @@ const pkmnsTotalType = computed(() =>
   > span {
     --border-color: rgb(99, 99, 99);
     --color: rgb(207, 207, 207);
-    border: 3px solid var(--border-color);
-    box-shadow: 4px 4px 0px #00000033, inset 2px 2px 0px white,
-      inset -2px -2px 0px #00000033;
-    border-radius: 16px 8px;
+    border: 2px solid var(--border-color);
+    box-shadow: 3px 3px 0px #00000033, inset 1.5px 1.5px 0px white,
+      inset -1.5px -1.5px 0px #00000033;
+    border-radius: 14px 6px;
     background: var(--color);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3px;
+    padding: 2px;
     cursor: pointer;
     transition: all 0.2s;
   }
@@ -267,28 +304,29 @@ const pkmnsTotalType = computed(() =>
   }
 
   .label {
-    font-size: 20px;
-    margin: 6px 0 -6px;
+    font-size: 18px;
+    margin: 4px 0 -8px;
   }
   .number {
-    font-size: 32px;
+    font-size: 28px;
     color: var(--border-color);
+    margin-bottom: -2px;
   }
 
   &.filter-small {
     .label {
       font-size: 16px;
-      margin: 6px 0 -6px;
+      margin: 2px 0 -6px;
     }
     .number {
-      font-size: 24px;
+      font-size: 20px;
       color: var(--border-color);
     }
   }
 
   input:checked + span {
-    box-shadow: 4px 4px 0px #00000033, inset -2px -2px 0px white,
-      inset 2px 2px 0px #00000033;
+    box-shadow: 3px 3px 0px #00000033, inset -1.5px -1.5px 0px white,
+      inset 1.5px 1.5px 0px #00000033;
   }
 }
 </style>
