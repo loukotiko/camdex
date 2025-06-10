@@ -24,7 +24,7 @@ defineProps<{
       </div>
     </div>
     <div class="pkmn-img">
-      <img :src="pkmn.img" />
+      <img :src="pkmn.img" :alt="pkmn.name" />
     </div>
     <div class="pkmn-bottom">
       <div class="pkmn-rank">
