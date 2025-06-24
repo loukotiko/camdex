@@ -9,9 +9,9 @@ import Pkmn from "./Pkmn.vue";
 
 const pkmnsByDate = ref({} as Record<string, PokemonCamdex[]>);
 
-Object.entries(camdex).forEach(async ([date, pokemons]) => {
+Object.entries(camdex).reverse().forEach(async ([date, pokemons]) => {
   pkmnsByDate.value[date] = [];
-  Object.entries(pokemons).reverse().forEach(async ([key, value]) => {
+  Object.entries(pokemons).forEach(async ([key, value]) => {
     const captured = value === "captured";
     const registered = captured ? 3 : +value;
 
