@@ -83,5 +83,15 @@
         "name": "Dratatin (poison)",
         "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
         "types": ["poison", "dragon"]
+    },
+    "froslass-fire": {
+        "name": "Momartik (feu)",
+        "img": "https://www.pokepedia.fr/images/5/54/Sprite_MissingNo._RV.png",
+        "types": ["fire", "ghost"]
+    },
+    "dratini-x-ponyta": {
+        "name": "Minyta",
+        "img": "https://ifd-spaces.sfo2.cdn.digitaloceanspaces.com/custom/147.77.png",
+        "types": ["dragon", "fire"]
     }
 }
