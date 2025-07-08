@@ -25,7 +25,7 @@
         "types": ["bug", "dragon"]
     },
     "glalie-fire": {
-        "name": "Onliglali (feu)",
+        "name": "Oniglali (feu)",
         "img": "./img_custom/glalie-fire.png",
         "types": ["fire", "dark"]
     },
